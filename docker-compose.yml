@@ -1,0 +1,22 @@
+version: "3"
+services:
+  backend:
+    image: python:3.7
+    container_name: backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./back:/deploy"
+    working_dir: /deploy
+    entrypoint: ./entrypoint.sh
+  frontend:
+    image: node:14
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./front:/deploy"
+    working_dir: /deploy
+    entrypoint: ./entrypoint.sh
+    environment:
+      HOST: 0.0.0.0
