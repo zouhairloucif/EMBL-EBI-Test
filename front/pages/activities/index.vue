@@ -30,16 +30,6 @@ import { mapGetters } from 'vuex';
 import activityItem from "@/components/activity/item";
 import VsPagination from '@vuesimple/vs-pagination';
 export default {
-  async fetch({ query, store, error }) {
-    const params = { page: query.page }
-    await store.dispatch('activities/getAllActivities', params)
-      .catch((err) => {
-        error({
-          statusCode: 400,
-          message: 'Couldn\'t retrieve activities list from api'
-        })
-      })
-  },
   components: {
     activityItem,
     VsPagination
@@ -49,12 +39,13 @@ export default {
       isLoading: false,
     }
   },
+  created() {
+    this.fetchData();
+  },
   watch: {
     '$route.query.page': {
       handler(val, oldVal) {
-        if(val && val > 1) {
-          this.fetchData()
-        }
+        this.fetchData()
       }
     }
   },

@@ -2,7 +2,7 @@
 
 # install requirements
 
-npm install && npm run --silent build
+npm install
 
-npm run start
+npm run dev
 echo "Frontend is Running on localhost:3000"
