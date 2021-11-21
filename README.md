@@ -16,3 +16,13 @@
     > ./start.sh
   * On Windows (Use Git bash):
     > ./start.sh
+
+* Use the app
+  * [Frontend](http://localhost:3000)
+  * [Backend](http://localhost:8000)
+
+* Stop the app from running in docker
+  * On macOS and linux: 
+    > ./stop.sh
+  * On Windows (Use Git bash):
+    > ./stop.sh
